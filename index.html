@@ -2,23 +2,43 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Video con estilo</title>
+  <title>Video fullscreen limpio</title>
 
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;        /* Fondo transparente */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;        /* Video un poco abajo */
+      height: 100vh;
+    }
+
     video {
-      width: 90%;
-      margin: 40px auto;
-      display: block;
-      border-radius: 20px;
+      width: 90%;                     /* Espacio a los lados */
+      margin-top: 40px;               /* Más abajo */
+      border-radius: 20px;            /* Esquinas curvas */
+      outline: none;
+    }
+
+    /* Ocultar icono de carga y controles nativos */
+    video::-webkit-media-controls {
+      display: none !important;
     }
   </style>
 
 </head>
 <body>
 
-  <video autoplay muted playsinline controls>
+  <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    controls="false"
+  >
     <source src="video1.mp4" type="video/mp4">
-    Tu navegador no soporta el video.
   </video>
 
 </body>
